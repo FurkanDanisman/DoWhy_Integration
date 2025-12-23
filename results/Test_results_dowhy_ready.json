@@ -1,0 +1,1000 @@
+{
+  "do_operator": [
+    {
+      "dowhy_output": "do(X)",
+      "expected": "do(X)",
+      "id": "do_1",
+      "input": "Do(X)"
+    },
+    {
+      "dowhy_output": "do(X=1)",
+      "expected": "do(X=1)",
+      "id": "do_2",
+      "input": "Do(X=1)"
+    },
+    {
+      "dowhy_output": "do(X=0)",
+      "expected": "do(X=0)",
+      "id": "do_3",
+      "input": "Do(X=0)"
+    },
+    {
+      "dowhy_output": "do(X=x)",
+      "expected": "do(X=x)",
+      "id": "do_4",
+      "input": "Do(X=x)"
+    },
+    {
+      "dowhy_output": "do(X=-1)",
+      "expected": "do(X=-1)",
+      "id": "do_5",
+      "input": "Do(X=-1)"
+    }
+  ],
+  "find_proof": [
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "proof_1",
+      "input": {
+        "start": "P(Y | do(X))",
+        "target": "P(Y | do(X))"
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "proof_2",
+      "input": {
+        "start": "P(Y | do(X), Z)",
+        "target": "P(Y | do(X), Z)"
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "proof_3",
+      "input": {
+        "start": "P(Y | Z)",
+        "target": "P(Y | Z)"
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "proof_4",
+      "input": {
+        "start": "P(Y | do(X))",
+        "target": "P(Y | do(X))"
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "proof_5",
+      "input": {
+        "start": "P(Y | do(X), Z)",
+        "target": "P(Y | do(X), Z)"
+      }
+    }
+  ],
+  "mult": [
+    {
+      "dowhy_output": "P(Y) * P(Z)",
+      "expected": "P(Y) * P(Z)",
+      "id": "mult_1",
+      "input": "P(Y) * P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X) * P(Z)",
+      "expected": "P(Y | X) * P(Z)",
+      "id": "mult_2",
+      "input": "P(Y|X) * P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X)) * P(Z)",
+      "expected": "P(Y | do(X)) * P(Z)",
+      "id": "mult_3",
+      "input": "P(Y|do(X)) * P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X, Z) * P(Z)",
+      "expected": "P(Y | X, Z) * P(Z)",
+      "id": "mult_4",
+      "input": "P(Y|X,Z) * P(Z)"
+    },
+    {
+      "dowhy_output": "P(A | B) * P(B | C)",
+      "expected": "P(A | B) * P(B | C)",
+      "id": "mult_5",
+      "input": "P(A|B) * P(B|C)"
+    }
+  ],
+  "parse_arithmetic": [
+    {
+      "dowhy_output": "P(Y) - P(Z)",
+      "expected": "P(Y) - P(Z)",
+      "id": "parse_arithmetic_1",
+      "input": "P(Y)-P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y) + P(Z)",
+      "expected": "P(Y) + P(Z)",
+      "id": "parse_arithmetic_2",
+      "input": "P(Y)+P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X) - P(Y | Z)",
+      "expected": "P(Y | X) - P(Y | Z)",
+      "id": "parse_arithmetic_3",
+      "input": "P(Y|X)-P(Y|Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X) + P(Z | X)",
+      "expected": "P(Y | X) + P(Z | X)",
+      "id": "parse_arithmetic_4",
+      "input": "P(Y|X)+P(Z|X)"
+    },
+    {
+      "dowhy_output": {
+        "error": "ValueError: Could not parse arithmetic expression: P(Y|do(X))-P(Y|do(Z))"
+      },
+      "expected": {
+        "error": "ValueError: Could not parse arithmetic expression: P(Y|do(X))-P(Y|do(Z))"
+      },
+      "id": "parse_arithmetic_5",
+      "input": "P(Y|do(X)) - P(Y|do(Z))"
+    },
+    {
+      "dowhy_output": "-P(Y | do(X=0)) + P(Y | do(X=1))",
+      "expected": "-P(Y | do(X=0)) + P(Y | do(X=1))",
+      "id": "parse_arithmetic_6",
+      "input": "P(Y_{X=1})-P(Y_{X=0})"
+    },
+    {
+      "dowhy_output": "2*P(Y | X)",
+      "expected": "2*P(Y | X)",
+      "id": "parse_arithmetic_7",
+      "input": "2*P(Y|X)"
+    },
+    {
+      "dowhy_output": "P(Y | X)*P(Z)**(-1)",
+      "expected": "P(Y | X)*P(Z)**(-1)",
+      "id": "parse_arithmetic_8",
+      "input": "P(Y|X)/P(Z)"
+    },
+    {
+      "dowhy_output": "P(Z) + P(Y | X)",
+      "expected": "P(Z) + P(Y | X)",
+      "id": "parse_arithmetic_9",
+      "input": "P(Y|X)+P(Z)"
+    },
+    {
+      "dowhy_output": "-P(Z) + P(Y | X)",
+      "expected": "-P(Z) + P(Y | X)",
+      "id": "parse_arithmetic_10",
+      "input": "P(Y|X)-P(Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X)*P(Z)",
+      "expected": "P(Y | X)*P(Z)",
+      "id": "parse_arithmetic_11",
+      "input": "P(Y|X)*P(Z)"
+    },
+    {
+      "dowhy_output": "-1 + P(Y | X)",
+      "expected": "-1 + P(Y | X)",
+      "id": "parse_arithmetic_12",
+      "input": "P(Y|X)-1"
+    },
+    {
+      "dowhy_output": "1 - P(Y | X)",
+      "expected": "1 - P(Y | X)",
+      "id": "parse_arithmetic_13",
+      "input": "1-P(Y|X)"
+    },
+    {
+      "dowhy_output": "2 + P(Y | X)",
+      "expected": "2 + P(Y | X)",
+      "id": "parse_arithmetic_14",
+      "input": "P(Y|X)+2"
+    },
+    {
+      "dowhy_output": "P(Z) + 3*P(Y | X)",
+      "expected": "P(Z) + 3*P(Y | X)",
+      "id": "parse_arithmetic_15",
+      "input": "P(Y|X)*3+P(Z)"
+    }
+  ],
+  "parse_basic": [
+    {
+      "dowhy_output": "P(Y)",
+      "expected": "P(Y)",
+      "id": "parse_basic_1",
+      "input": "P(Y)"
+    },
+    {
+      "dowhy_output": "P(Y | X)",
+      "expected": "P(Y | X)",
+      "id": "parse_basic_2",
+      "input": "P(Y|X)"
+    },
+    {
+      "dowhy_output": "P(Y | X, Z)",
+      "expected": "P(Y | X, Z)",
+      "id": "parse_basic_3",
+      "input": "P(Y|X,Z)"
+    },
+    {
+      "dowhy_output": "P(Y | X, Z)",
+      "expected": "P(Y | X, Z)",
+      "id": "parse_basic_4",
+      "input": "P(Y|Z,X)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X))",
+      "expected": "P(Y | do(X))",
+      "id": "parse_basic_5",
+      "input": "P(Y|do(X))"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), Z)",
+      "expected": "P(Y | do(X), Z)",
+      "id": "parse_basic_6",
+      "input": "P(Y|do(X),Z)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), Z)",
+      "expected": "P(Y | do(X), Z)",
+      "id": "parse_basic_7",
+      "input": "P(Y|Z,do(X))"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=1), Z)",
+      "expected": "P(Y | do(X=1), Z)",
+      "id": "parse_basic_8",
+      "input": "P(Y|do(X=1),Z)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=1), Z=2)",
+      "expected": "P(Y | do(X=1), Z=2)",
+      "id": "parse_basic_9",
+      "input": "P(Y|do(X=1),Z=2)"
+    },
+    {
+      "dowhy_output": "P(Y | X=1)",
+      "expected": "P(Y | X=1)",
+      "id": "parse_basic_10",
+      "input": "P(Y|X=1)"
+    },
+    {
+      "dowhy_output": "P(Y | X=1, Z=2)",
+      "expected": "P(Y | X=1, Z=2)",
+      "id": "parse_basic_11",
+      "input": "P(Y|X=1,Z=2)"
+    },
+    {
+      "dowhy_output": "P(Y=1)",
+      "expected": "P(Y=1)",
+      "id": "parse_basic_12",
+      "input": "P(Y=1)"
+    },
+    {
+      "dowhy_output": "P(Y=0 | X)",
+      "expected": "P(Y=0 | X)",
+      "id": "parse_basic_13",
+      "input": "P(Y=0|X)"
+    },
+    {
+      "dowhy_output": "P(Y=1 | X=0)",
+      "expected": "P(Y=1 | X=0)",
+      "id": "parse_basic_14",
+      "input": "P(Y=1|X=0)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), Z=2)",
+      "expected": "P(Y | do(X), Z=2)",
+      "id": "parse_basic_15",
+      "input": "P(Y|do(X),Z=2)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=0), Z=2)",
+      "expected": "P(Y | do(X=0), Z=2)",
+      "id": "parse_basic_16",
+      "input": "P(Y|do(X=0),Z=2)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), W, Z)",
+      "expected": "P(Y | do(X), W, Z)",
+      "id": "parse_basic_17",
+      "input": "P(Y|do(X),Z,W)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), W=1, Z)",
+      "expected": "P(Y | do(X), W=1, Z)",
+      "id": "parse_basic_18",
+      "input": "P(Y|do(X),Z,W=1)"
+    },
+    {
+      "dowhy_output": "P(Y | W=1, Z)",
+      "expected": "P(Y | W=1, Z)",
+      "id": "parse_basic_19",
+      "input": "P(Y|Z,W=1)"
+    },
+    {
+      "dowhy_output": "P(Y | do(X), do(Z))",
+      "expected": "P(Y | do(X), do(Z))",
+      "id": "parse_basic_20",
+      "input": "P(Y|do(X),do(Z))"
+    }
+  ],
+  "parse_products": [
+    {
+      "dowhy_output": "P(A | B)*P(B)",
+      "expected": "P(A | B)*P(B)",
+      "id": "parse_products_1",
+      "input": "P(A|B)*P(B)"
+    },
+    {
+      "dowhy_output": "P(A)*P(B)",
+      "expected": "P(A)*P(B)",
+      "id": "parse_products_2",
+      "input": "P(A)*P(B)"
+    },
+    {
+      "dowhy_output": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B))*P(B)"
+      },
+      "expected": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B))*P(B)"
+      },
+      "id": "parse_products_3",
+      "input": "P(A|do(B))*P(B)"
+    },
+    {
+      "dowhy_output": "P(A | B)*P(B | C)",
+      "expected": "P(A | B)*P(B | C)",
+      "id": "parse_products_4",
+      "input": "P(A|B)*P(B|C)"
+    },
+    {
+      "dowhy_output": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B),C)*P(B)"
+      },
+      "expected": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B),C)*P(B)"
+      },
+      "id": "parse_products_5",
+      "input": "P(A|do(B),C)*P(B)"
+    },
+    {
+      "dowhy_output": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|B)*P(B|do(C))"
+      },
+      "expected": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|B)*P(B|do(C))"
+      },
+      "id": "parse_products_6",
+      "input": "P(A|B)*P(B|do(C))"
+    },
+    {
+      "dowhy_output": "P(A | B)*P(B)*P(C)",
+      "expected": "P(A | B)*P(B)*P(C)",
+      "id": "parse_products_7",
+      "input": "P(A|B)*P(B)*P(C)"
+    },
+    {
+      "dowhy_output": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B))*P(B|do(C))"
+      },
+      "expected": {
+        "error": "ValueError: Could not parse arithmetic expression: P(A|do(B))*P(B|do(C))"
+      },
+      "id": "parse_products_8",
+      "input": "P(A|do(B))*P(B|do(C))"
+    },
+    {
+      "dowhy_output": "P(A | B)*P(B | C)*P(C)",
+      "expected": "P(A | B)*P(B | C)*P(C)",
+      "id": "parse_products_9",
+      "input": "P(A|B)*P(B|C)*P(C)"
+    },
+    {
+      "dowhy_output": "P(A)*P(B)*P(C)",
+      "expected": "P(A)*P(B)*P(C)",
+      "id": "parse_products_10",
+      "input": "P(A)*P(B)*P(C)"
+    }
+  ],
+  "parse_subscript": [
+    {
+      "dowhy_output": "P(Y | do(X=1))",
+      "expected": "P(Y | do(X=1))",
+      "id": "parse_subscript_1",
+      "input": "P(Y_{X=1})"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=0))",
+      "expected": "P(Y | do(X=0))",
+      "id": "parse_subscript_2",
+      "input": "P(Y_{X=0})"
+    },
+    {
+      "dowhy_output": "P(Y | do(X))",
+      "expected": "P(Y | do(X))",
+      "id": "parse_subscript_3",
+      "input": "P(Y_{X})"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=1), do(Z=2))",
+      "expected": "P(Y | do(X=1), do(Z=2))",
+      "id": "parse_subscript_4",
+      "input": "P(Y_{X=1,Z=2})"
+    },
+    {
+      "dowhy_output": "P(Y | do(X=1), do(Z))",
+      "expected": "P(Y | do(X=1), do(Z))",
+      "id": "parse_subscript_5",
+      "input": "P(Y_{X=1,Z})"
+    },
+    {
+      "dowhy_output": "P(Y | do(V=3), do(X=1), do(Z=2))",
+      "expected": "P(Y | do(V=3), do(X=1), do(Z=2))",
+      "id": "parse_subscript_6",
+      "input": "P(Y_{X=1,Z=2,V=3})"
+    },
+    {
+      "dowhy_output": "P(Y | do(V2=1), do(X=0))",
+      "expected": "P(Y | do(V2=1), do(X=0))",
+      "id": "parse_subscript_7",
+      "input": "P(Y_{X=0,V2=1})"
+    },
+    {
+      "dowhy_output": "P(Y | do(V2=0), do(X=0))",
+      "expected": "P(Y | do(V2=0), do(X=0))",
+      "id": "parse_subscript_8",
+      "input": "P(Y_{X=0,V2=0})"
+    },
+    {
+      "dowhy_output": "P(Y | do(V2=0), do(X=1))",
+      "expected": "P(Y | do(V2=0), do(X=1))",
+      "id": "parse_subscript_9",
+      "input": "P(Y_{X=1,V2=0})"
+    },
+    {
+      "dowhy_output": "P(Y | do(V2=0), do(X=1), do(Z=3))",
+      "expected": "P(Y | do(V2=0), do(X=1), do(Z=3))",
+      "id": "parse_subscript_10",
+      "input": "P(Y_{X=1,V2=0,Z=3})"
+    }
+  ],
+  "rule1": [
+    {
+      "dowhy_output": [
+        "P(Y | do(X))"
+      ],
+      "expected": [
+        "P(Y | do(X))"
+      ],
+      "id": "rule1_1",
+      "input": {
+        "expr": "P(Y | do(X), Z)",
+        "graph": {
+          "X": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "rule1_2",
+      "input": {
+        "expr": "P(Y | do(X), Z)",
+        "graph": {
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "P(Y | do(X), Z)"
+      ],
+      "expected": [
+        "P(Y | do(X), Z)"
+      ],
+      "id": "rule1_3",
+      "input": {
+        "expr": "P(Y | do(X), Z, W)",
+        "graph": {
+          "X": [
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "rule1_u1",
+      "input": {
+        "expr": "P(Y | do(X), Z)",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "P(Y | do(X), Z)"
+      ],
+      "expected": [
+        "P(Y | do(X), Z)"
+      ],
+      "id": "rule1_u2",
+      "input": {
+        "expr": "P(Y | do(X), Z, W)",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    }
+  ],
+  "rule2": [
+    {
+      "dowhy_output": [
+        "P(Y | do(X), Z)"
+      ],
+      "expected": [
+        "P(Y | do(X), Z)"
+      ],
+      "id": "rule2_1",
+      "input": {
+        "expr": "P(Y | do(X), do(Z))",
+        "graph": {
+          "X": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "rule2_2",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {
+          "X": [
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "P(Y | do(X), Z)"
+      ],
+      "expected": [
+        "P(Y | do(X), Z)"
+      ],
+      "id": "rule2_u1",
+      "input": {
+        "expr": "P(Y | do(X), do(Z))",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [],
+      "expected": [],
+      "id": "rule2_u2",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "P(Y | do(Z), X)",
+        "P(Y | do(X), Z)"
+      ],
+      "expected": [
+        "P(Y | do(Z), X)",
+        "P(Y | do(X), Z)"
+      ],
+      "id": "rule2_5",
+      "input": {
+        "expr": "P(Y | do(X), do(Z))",
+        "graph": {}
+      }
+    }
+  ],
+  "rule3": [
+    {
+      "dowhy_output": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "expected": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "id": "rule3_1",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {
+          "X": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": {
+        "error": "NodeNotFound: Source X is not in G"
+      },
+      "expected": {
+        "error": "NodeNotFound: Source X is not in G"
+      },
+      "id": "rule3_2",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {
+          "Z": [
+            "W"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "expected": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "id": "rule3_3",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W=1)",
+        "graph": {
+          "X": [
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "expected": {
+        "error": "NodeNotFound: Target W is not in G"
+      },
+      "id": "rule3_u1",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": {
+        "error": "NodeNotFound: Source X is not in G"
+      },
+      "expected": {
+        "error": "NodeNotFound: Source X is not in G"
+      },
+      "id": "rule3_5",
+      "input": {
+        "expr": "P(Y | do(X), do(Z), W)",
+        "graph": {}
+      }
+    }
+  ],
+  "sorting": [
+    {
+      "dowhy_output": {
+        "equal": true,
+        "str1": "P(Y | do(X), Z)",
+        "str2": "P(Y | do(X), Z)"
+      },
+      "expected": {
+        "equal": true,
+        "str1": "P(Y | do(X), Z)",
+        "str2": "P(Y | do(X), Z)"
+      },
+      "id": "sort_1",
+      "input": {
+        "conds1": [
+          "do(X)",
+          "Z"
+        ],
+        "conds2": [
+          "Z",
+          "do(X)"
+        ],
+        "outcome": "Y"
+      }
+    },
+    {
+      "dowhy_output": {
+        "equal": true,
+        "str1": "P(Y | do(X), Z=1)",
+        "str2": "P(Y | do(X), Z=1)"
+      },
+      "expected": {
+        "equal": true,
+        "str1": "P(Y | do(X), Z=1)",
+        "str2": "P(Y | do(X), Z=1)"
+      },
+      "id": "sort_2",
+      "input": {
+        "conds1": [
+          "do(X)",
+          "Eq(Z,1)"
+        ],
+        "conds2": [
+          "Eq(Z,1)",
+          "do(X)"
+        ],
+        "outcome": "Y"
+      }
+    },
+    {
+      "dowhy_output": {
+        "equal": true,
+        "str1": "P(Eq(Y,1) | do(X), Z)",
+        "str2": "P(Eq(Y,1) | do(X), Z)"
+      },
+      "expected": {
+        "equal": true,
+        "str1": "P(Eq(Y,1) | do(X), Z)",
+        "str2": "P(Eq(Y,1) | do(X), Z)"
+      },
+      "id": "sort_3",
+      "input": {
+        "conds1": [
+          "do(X)",
+          "Z"
+        ],
+        "conds2": [
+          "Z",
+          "do(X)"
+        ],
+        "outcome": "Eq(Y,1)"
+      }
+    },
+    {
+      "dowhy_output": {
+        "equal": true,
+        "str1": "P(Y | do(X), W, Z)",
+        "str2": "P(Y | do(X), W, Z)"
+      },
+      "expected": {
+        "equal": true,
+        "str1": "P(Y | do(X), W, Z)",
+        "str2": "P(Y | do(X), W, Z)"
+      },
+      "id": "sort_4",
+      "input": {
+        "conds1": [
+          "Z",
+          "W",
+          "do(X)"
+        ],
+        "conds2": [
+          "do(X)",
+          "W",
+          "Z"
+        ],
+        "outcome": "Y"
+      }
+    },
+    {
+      "dowhy_output": {
+        "equal": true,
+        "str1": "P(Y | do(X=1), Z)",
+        "str2": "P(Y | do(X=1), Z)"
+      },
+      "expected": {
+        "equal": true,
+        "str1": "P(Y | do(X=1), Z)",
+        "str2": "P(Y | do(X=1), Z)"
+      },
+      "id": "sort_5",
+      "input": {
+        "conds1": [
+          "do(X=1)",
+          "Z"
+        ],
+        "conds2": [
+          "Z",
+          "do(X=1)"
+        ],
+        "outcome": "Y"
+      }
+    }
+  ],
+  "suggest_fix": [
+    {
+      "dowhy_output": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given []."
+      ],
+      "expected": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given []."
+      ],
+      "id": "suggest_1",
+      "input": {
+        "expr": "P(Y | Z)",
+        "graph": {
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "All observed variables are d-separated from Y in the interventional graph. Consider using P(Y) instead \u2014 no conditioning is necessary."
+      ],
+      "expected": [
+        "All observed variables are d-separated from Y in the interventional graph. Consider using P(Y) instead \u2014 no conditioning is necessary."
+      ],
+      "id": "suggest_2",
+      "input": {
+        "expr": "P(Y | Z)",
+        "graph": {
+          "X": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given ['X']."
+      ],
+      "expected": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given ['X']."
+      ],
+      "id": "suggest_3",
+      "input": {
+        "expr": "P(Y | do(X), Z)",
+        "graph": {
+          "X": [
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "Z is a mediator between a cause and Y. Avoid conditioning on Z to prevent post-treatment bias.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given ['W']."
+      ],
+      "expected": [
+        "Z is a mediator between a cause and Y. Avoid conditioning on Z to prevent post-treatment bias.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given ['W']."
+      ],
+      "id": "suggest_4",
+      "input": {
+        "expr": "P(Y | Z, W)",
+        "graph": {
+          "W": [
+            "Z"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    },
+    {
+      "dowhy_output": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given []."
+      ],
+      "expected": [
+        "Z causes Y, but is only observed. Consider using do(Z) if you intend an intervention.",
+        "Conditioning on Z may bias results; Y is not d-separated from Z given []."
+      ],
+      "id": "suggest_u1",
+      "input": {
+        "expr": "P(Y | Z)",
+        "graph": {
+          "U": [
+            "X",
+            "Y"
+          ],
+          "Z": [
+            "Y"
+          ]
+        }
+      }
+    }
+  ],
+  "sum_over": [
+    {
+      "dowhy_output": "\u03a3_{Z}[P(Y | X)]",
+      "expected": "\u03a3_{Z}[P(Y | X)]",
+      "id": "sum_1",
+      "input": "SumOver(Z, P(Y|X))"
+    },
+    {
+      "dowhy_output": "\u03a3_{(Z, W)}[P(Y)]",
+      "expected": "\u03a3_{(Z, W)}[P(Y)]",
+      "id": "sum_2",
+      "input": "SumOver((Z, W), P(Y))"
+    },
+    {
+      "dowhy_output": "\u03a3_{(Z, W, V)}[P(Y | do(X))]",
+      "expected": "\u03a3_{(Z, W, V)}[P(Y | do(X))]",
+      "id": "sum_3",
+      "input": "SumOver((Z, W, V), P(Y|do(X)))"
+    },
+    {
+      "dowhy_output": "\u03a3_{Z}[P(A | B)*P(B)]",
+      "expected": "\u03a3_{Z}[P(A | B)*P(B)]",
+      "id": "sum_4",
+      "input": "SumOver(Z, P(A|B)*P(B))"
+    },
+    {
+      "dowhy_output": "\u03a3_{(V2,)}[P(Y | do(X), Z)]",
+      "expected": "\u03a3_{(V2,)}[P(Y | do(X), Z)]",
+      "id": "sum_5",
+      "input": "SumOver((V2,), P(Y|Z,do(X)))"
+    }
+  ]
+}
