@@ -1,6 +1,6 @@
-# doverifier
+# Doverifier
 
-doverifier is a focused toolkit for reasoning about causal expressions using
+Doverifier is a focused toolkit for reasoning about causal expressions using
 do-calculus. It provides parsing utilities, rewrite rules, and proof search for
 causal probability expressions while preserving the exact semantics of the
 original implementation.
